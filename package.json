@@ -1,0 +1,59 @@
+{
+  "name": "smart-node-package-installer",
+  "displayName": "Smart node package installer",
+  "description": "This will automatically install packages that not in package.json but required in a file. This is also ensuring if you use the package it has to be acorrect level deependaecy",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.79.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Jordan-Hall/smart-node-package-installer"
+  },
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "extension.checkMissingPackages",
+        "title": "Check Missing Packages"
+      }
+    ],
+    "configuration": {
+      "title": "Module Installer",
+      "properties": {
+        "moduleInstaller.autoCorrectPaths": {
+          "type": "boolean",
+          "default": false,
+          "description": "Automatically correct incorrect local file paths"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "pnpm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "pnpm run compile && pnpm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/glob": "^8.1.0",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "20.2.5",
+    "@types/sinon": "^10.0.15",
+    "@types/vscode": "^1.79.0",
+    "@typescript-eslint/eslint-plugin": "^5.59.8",
+    "@typescript-eslint/parser": "^5.59.8",
+    "@vscode/test-electron": "^2.3.2",
+    "eslint": "^8.41.0",
+    "glob": "^8.1.0",
+    "mocha": "^10.2.0",
+    "sinon": "^15.2.0",
+    "typescript": "^5.1.3"
+  }
+}
